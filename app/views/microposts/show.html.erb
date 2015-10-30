@@ -1,0 +1,25 @@
+<h1><%= @micropost.title %></h1>
+<br><br>
+<h3><%= @micropost.content %></h3>
+<br><br>
+
+<% if logged_in? %>
+  <section class="comment_form">
+    <%= render 'shared/comment_form' %>
+  </section>
+<% end %>
+
+<br>
+
+<% if @comments.any? %>
+	<h3>User's comments:</h3>
+	<ul class="comments">
+		<% @comments.each do |c| %>
+			<li>
+				<%= c.content %>
+			</li>
+		<% end %>
+	</ul>
+	<%= will_paginate @comments %>
+<% end %>
+

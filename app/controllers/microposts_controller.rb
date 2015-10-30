@@ -2,6 +2,12 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
   
+  def show
+    @micropost = Micropost.find(params[:id])
+    @comments = @micropost.comments.paginate(page: params[:page])
+    @comment = @micropost.comments.build if logged_in?
+  end
+  
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
@@ -12,7 +18,7 @@ class MicropostsController < ApplicationController
       render 'static_pages/home'
     end
   end
-  
+    
   def destroy
     @micropost.destroy
     flash[:success] = "Micropost deleted"
