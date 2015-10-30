@@ -16,10 +16,16 @@
 	<ul class="comments">
 		<% @comments.each do |c| %>
 			<li>
+				<%= link_to c.user.name, c.user %>
+				(at <%= Time.parse(c.created_at.to_s).to_s[0,16] %>):
 				<%= c.content %>
 			</li>
 		<% end %>
 	</ul>
 	<%= will_paginate @comments %>
 <% end %>
+
+
+
+
 

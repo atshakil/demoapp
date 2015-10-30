@@ -3,14 +3,14 @@ class CommentsController < ApplicationController
 
   def create
     @micropost = Micropost.find(params[:micropost_id])
-    @comment = @micropost.comments.create({content: params[:comment][:content], micropost_id: params[:micropost_id]})
+    @comment = @micropost.comments.create({content: params[:comment][:content], micropost_id: params[:micropost_id], user_id: params[:user_id]})
     if @comment.save
       flash[:success] = "Comment created!"
     else
       flash[:danger] = 'Something went wrong'
-      render 'static_pages/home'
+      # render 'static_pages/home'
     end
-    redirect_to @micropost
+      redirect_to @micropost
   end
   
   
