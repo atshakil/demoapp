@@ -32,3 +32,16 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+# Following relationships simplification
+#user  = User.all.first
+#users[2..50].each { |x| user.follow(x) }
+#users[3..40].each { |y| y.follow(user) }
+
+
+
+
+
+
+
+
