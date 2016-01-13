@@ -1,5 +1,5 @@
 # Demo Application
-
+[![Build Status](https://travis-ci.org/shakil-fg/demoapp.svg?branch=master)](https://travis-ci.org/shakil-fg/demoapp)
 ## Demo application developed and adapted to work with following features
 
 User
